@@ -1,5 +1,5 @@
 # pull the official base image
-FROM node:17-alpine3.14 as base
+FROM node:19-alpine3.15 as base
 # set working direction
 WORKDIR /app
 # add `/app/node_modules/.bin` to $PATH
@@ -18,7 +18,5 @@ FROM nginx
 WORKDIR /usr/share/nginx/html
 
 COPY --from=base /app/build .
-
-RUN certbot --nginx -d suchagents.at
 
 CMD ["nginx", "-g", "daemon off;"]

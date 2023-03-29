@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "../layout/Layout";
+import Layout from "../../layout/Layout";
 import {
   Container,
   Grid,
@@ -10,7 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../theme";
+import theme from "../../theme";
 import { DropzoneAreaBase } from "mui-file-dropzone";
 import Avatar from "@mui/joy/Avatar";
 import FormLabel from "@mui/joy/FormLabel";

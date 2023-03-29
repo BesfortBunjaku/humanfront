@@ -9,6 +9,8 @@ import Avatar from "@mui/material/Avatar";
 import { Menu } from "@mui/material";
 import React, { Component } from "react";
 import { useNavigate } from "react-router-dom";
+import {SvgIcon} from "@mui/material";
+import logo from "../assets/images/logo.svg";
 
 const settings = ["Profile", "Logout", "Register"];
 
@@ -74,14 +76,14 @@ class Header extends Component {
                 component="img"
                 sx={{
                   height: 50,
-                  width: 200,
+                  width: 50,
  
                 }}
-                alt="The house from the offer."
-                src={require("../images/logo.png")}
+                
+                src={logo}
               />
             </IconButton>
-
+      
             {this.props.children}
 
             <Box sx={{ flexGrow: 0 }}>

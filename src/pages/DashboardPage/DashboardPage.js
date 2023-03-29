@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "../layout/Layout";
+import Layout from "../../layout/Layout";
 import { Container, Grid} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../theme";
+import theme from "../../theme";
 import { useEffect } from "react";
-import CountCard from "../components/CountCard";
+import CountCard from "../../components/CountCard";
 import {
   Chart as ChartJS,
   CategoryScale,

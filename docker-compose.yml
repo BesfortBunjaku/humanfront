@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  immofront:
+  humanfront:
     build:
       context: .
-    image: immopwaimg
-    container_name: immopwacontainer
+    image: humanfrontimg
+    container_name: humanfrontcontainer
     restart: always
     ports:
       - "3000:80"

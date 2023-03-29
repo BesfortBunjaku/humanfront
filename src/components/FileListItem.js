@@ -13,7 +13,15 @@ import DownloadIcon from "@mui/icons-material/Download";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "@mui/material";
 
-function FileListItem(props) {
+function FileListItem({
+  fileId,
+  fileType,
+  fileName,
+  fileSize,
+  fileDate,
+  fileLink,
+  onDeleteClick,
+}) {
   const formatBytes = (bytes, decimals = 2) => {
     if (!+bytes) return "0 Bytes";
 
@@ -37,7 +45,7 @@ function FileListItem(props) {
                 edge="end"
                 aria-label="delete"
                 component={Link}
-                href={`http://127.0.0.1:8000${props.filelink}`}
+                href={`http://localhost:8008${fileLink}`}
               >
                 <DownloadIcon />
               </IconButton>
@@ -47,7 +55,7 @@ function FileListItem(props) {
                 sx={{ color: "#17232F" }}
                 edge="end"
                 aria-label="delete"
-                onClick={() => props.onDeleteClick(props.fileid)}
+                onClick={() => onDeleteClick(fileId)}
               >
                 <DeleteIcon />
               </IconButton>
@@ -57,7 +65,7 @@ function FileListItem(props) {
       >
         <ListItemIcon>
           {(() => {
-            if (props.filetype === "pdf") {
+            if (fileType === "pdf") {
               return (
                 <Box
                   component="img"
@@ -67,10 +75,10 @@ function FileListItem(props) {
                     mx: "auto",
                   }}
                   alt="The house from the offer."
-                  src={require("../images/pdf70.png")}
+                  src={require("../assets/images/pdf70.png")}
                 />
               );
-            } else if (props.filetype === "xlsx") {
+            } else if (fileType === "xlsx") {
               return (
                 <Box
                   component="img"
@@ -79,10 +87,10 @@ function FileListItem(props) {
                     width: 70,
                   }}
                   alt="The house from the offer."
-                  src={require("../images/xlsx70.png")}
+                  src={require("../assets/images/xlsx70.png")}
                 />
               );
-            } else if (props.filetype === "csv") {
+            } else if (fileType === "csv") {
               return (
                 <Box
                   component="img"
@@ -91,7 +99,7 @@ function FileListItem(props) {
                     width: 70,
                   }}
                   alt="The house from the offer."
-                  src={require("../images/csv70.png")}
+                  src={require("../assets/images/csv70.png")}
                 />
               );
             }
@@ -100,11 +108,11 @@ function FileListItem(props) {
           })()}
         </ListItemIcon>
         <ListItemText
-          primary={props.filename}
+          primary={fileName}
           secondary={
-            formatBytes(props.filesize) +
+            formatBytes(fileSize) +
             "  --  " +
-            new Date(props.filedate).toLocaleString()
+            new Date(fileDate).toLocaleString()
           }
         />
       </ListItem>
